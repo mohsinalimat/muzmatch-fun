@@ -1,3 +1,7 @@
+# DOWNLOAD VIDEOS HERE:
+
+https://github.com/nabilfreeman/muzmatch-fun/tree/master/non-code/videos
+
 # From Shaz:
 
 I want you to build a small demo app. Just one screen.  
