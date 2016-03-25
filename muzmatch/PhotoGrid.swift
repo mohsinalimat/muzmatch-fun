@@ -14,41 +14,12 @@ class PhotoGridController : UICollectionViewController {
     
     //empty model for our CollectionView. we'll initialize and use this later on.
     var dataObject: [UIImage] = []
-    
-    
-    //i have to do this because I don't understand AutoLayout. Fuck autolayout.
-    func setControlContainerSize(notification: NSNotification) {
-        var frame: CGRect = self.view.frame
-        
-        let screenHeight = UIScreen.mainScreen().bounds.height
-        let delta = notification.object as! CGFloat
-        
-        print("Setting control container size...")
-        //        print(screenHeight - delta)
-        
-        frame.size.height = screenHeight - delta
-        frame.size.width = UIScreen.mainScreen().bounds.width
-        
-        self.view.frame = frame
-        self.collectionView?.frame = frame
-    }
-    
-    func scrollToTopControlContainer() {
-        self.collectionView?.setContentOffset(CGPointMake(0, 0), animated: true)
-    }
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("\nhello world (EmojiGrid)")
-        
         //read emoji file and populate model.
         dispatch_async(dispatch_get_main_queue(), {self.getPhotos()})
-        
-        print("\nEnd of EmojiGrid viewDidLoad")
     }
     
     
@@ -89,14 +60,6 @@ class PhotoGridController : UICollectionViewController {
         return cell
     }
     
-//    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        //        print("\nSelected:")
-//        //        print(indexPath.row)
-//        
-//        NSNotificationCenter.defaultCenter().postNotificationName("emojiChosen", object: dataObject[indexPath.row])
-//        
-//    }
-    
 }
 
 
@@ -107,9 +70,6 @@ extension PhotoGridController : UICollectionViewDelegateFlowLayout {
             
             let cellWidth = self.collectionView!.frame.width;
             let cellHeight = self.collectionView!.frame.height;
-            
-//            cellWidth = 100;
-//            cellHeight = 100;
             
             print(cellWidth, cellHeight);
             
